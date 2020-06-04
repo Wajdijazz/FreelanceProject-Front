@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-sm-12">
+  
+   
+      <!-- Inverse table card end -->
+      <!-- Hover table card start -->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-header-text">Persons List</h5>
+          <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right" (click)="addPerson()">
+            <i class="icofont icofont-edit"></i>
+          </button>
+        </div>
+        <div class="card-body">
+             <div class="table-responsive">
+              <table class="table table-hover">
+               <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Department</th>
+                <th>Actions</th>
+  
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>IT</td>
+                <td>
+                <button  id="button" type="button" class="btn btn-sm btn-success waves-effect" (click)="addPerson()">
+                  <i class="icofont icofont-edit"></i>
+                </button>
+                <button  id="button" type="button" class="btn btn-sm btn-danger waves-effect" (click)="addPerson()">
+                  <i class="icofont icofont-delete"></i>
+                </button>
+              </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>Maintenance</td>
+              <td>
+                <button  id="button" type="button" class="btn btn-sm btn-success waves-effect" (click)="toggleEditProfile()">
+                  <i class="icofont icofont-edit"></i>
+                </button>
+                <button  id="button" type="button" class="btn btn-sm btn-danger waves-effect" (click)="toggleEditProfile()">
+                  <i class="icofont icofont-delete"></i>
+                </button>
+              </td>
+              </tr>
+     
+              </tbody>
+          </table>
+        </div>
+      </div>
+    
+      <!-- Background Utilities table end -->
+    </div>
+  </div>
+  
