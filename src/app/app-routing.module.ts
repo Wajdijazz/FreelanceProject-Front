@@ -2,17 +2,21 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AdminComponent} from './layout/admin/admin.component';
 import {AuthComponent} from './layout/auth/auth.component';
+import { BasicLoginComponent } from './pages/auth/login/basic-login/basic-login.component';
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+ 
+
+  {
+    path: '',
     component: AdminComponent,
     children: [
-      {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full'
-      }, {
+     {
         path: 'dashboard',
         loadChildren: () => import('./pages/dashboard/dashboard-default/dashboard-default.module').then(m => m.DashboardDefaultModule)
       }, {
@@ -40,16 +44,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: '',
-    component: AuthComponent,
-    children: [
-      {
-        path: 'authentication',
-        loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
-      }
-    ]
-  }
+ 
 ];
 
 @NgModule({

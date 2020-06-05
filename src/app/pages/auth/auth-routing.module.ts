@@ -10,8 +10,8 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'login',
-        loadChildren: () => import('./login/basic-login/basic-login.module').then(m => m.BasicLoginModule)
+    /*    path: 'login',
+        loadChildren: () => import('./login/basic-login/basic-login.module').then(m => m.BasicLoginModule)*/
       },
       {
         path: 'registration',

@@ -4,7 +4,7 @@ import {BasicLoginComponent} from './basic-login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: BasicLoginComponent,
     data: {
       title: 'Simple Login'

@@ -14,6 +14,8 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
+import { BasicLoginComponent } from './pages/auth/login/basic-login/basic-login.component';
+import { BasicLoginModule } from './pages/auth/login/basic-login/basic-login.module';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -36,6 +38,7 @@ export function createTranslateLoader(http: HttpClient) {
     SharedModule,
     HttpClientModule,
     MatDialogModule,
+    BasicLoginModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
