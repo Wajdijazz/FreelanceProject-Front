@@ -2,6 +2,8 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
 import {MenuItems} from '../../shared/menu-items/menu-items';
 import { TranslateService } from '@ngx-translate/core';  
+import { TokenStorageService } from '../../pages/auth/token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -102,9 +104,11 @@ export class AdminComponent implements OnInit {
 
   public config: any;
   language: any;
- 
+  private roles: string[];
+  private authority: string;
 
-  constructor(public menuItems: MenuItems, public translate: TranslateService) {
+  constructor(private router: Router, public menuItems: MenuItems, public translate: TranslateService,
+     private tokenStorage: TokenStorageService) {
     translate.setDefaultLang('English'); 
     this.navType = 'st5';
     this.themeLayout = 'vertical';
@@ -148,9 +152,11 @@ export class AdminComponent implements OnInit {
     this.setMenuAttributes(this.windowWidth);
 
     // dark
-    /*this.setLayoutType('dark');
+  /*  this.setLayoutType('dark');
     this.headerTheme = 'theme5';
     this.logoTheme = 'theme5';*/
+
+
 
     // light-dark
     /*this.setLayoutType('dark');
@@ -159,16 +165,38 @@ export class AdminComponent implements OnInit {
 
     // dark-light
     // this.setNavBarTheme('theme1');
-    // this.navType = 'st3';
+   //  this.navType = 'st3';
 
   }
+
 
   ngOnInit() {
     this.setBackgroundPattern('pattern2');
     this.language= [{lang:"English",src:"assets/images/flags/ENGLISH.jpg"},
                     {lang:"French",src:"assets/images/flags/FRANCE.jpg"}];
-  }
 
+   if (this.tokenStorage.getToken()) {
+      this.roles = this.tokenStorage.getAuthorities();
+        this.roles.every(role => {
+          if (role === 'SUPERADMIN') {
+            this.authority = 'superadmin';
+            return false;
+              } else if (role === 'ADMIN') {
+                  this.authority = 'admin';
+                  return false;
+                    }
+                  this.authority = 'user';
+                  return true;
+                      });
+                    }
+                    console.log(this.authority);
+  }
+  logout() {
+    this.tokenStorage.signOut();
+    this.router.navigateByUrl('/login');
+
+
+  }
   onResize(event) {
     this.innerHeight = event.target.innerHeight + 'px';
     /* menu responsive */

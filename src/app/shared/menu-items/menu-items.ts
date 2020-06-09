@@ -30,6 +30,8 @@ export interface Menu {
   main: MainMenuItems[];
 }
 
+
+
 const MENUITEMS = [
   {
     label: 'Navigation',
@@ -176,14 +178,75 @@ const MENUITEMS = [
     ]
   }
 ];
-
+const MENUITEMSSUPERADMIN = [
+  {
+    label: 'Navigation',
+    main: [
+      {
+        state: 'dashboard',
+        short_label: 'D',
+        name: 'Dashboard',
+        type: 'link',
+        icon: 'ti-home'
+      }
+     
+   
+    ],
+  },
+  {
+    label: 'Tables',
+    main: [
+      {
+        state: 'company-client',
+        short_label: 'C',
+        name: 'Clients',
+        type: 'link',
+        icon: 'ti-receipt'
+      }
+  
+    ]
+  },
+  {
+    label: 'Login and Registration ',
+    main: [
+  
+      {
+        state: 'authentication',
+        short_label: 'A',
+        name: 'Authentication',
+        type: 'sub',
+        icon: 'ti-id-badge',
+        children: [
+          {
+            state: 'login',
+            type: 'link',
+            name: 'Login',
+            target: true
+          }, {
+            state: 'registration',
+            type: 'link',
+            name: 'Registration',
+            target: true
+          }
+        ]
+      },
+      {
+        state: 'user',
+        short_label: 'U',
+        name: 'User Profile',
+        type: 'link',
+        icon: 'ti-user'
+      }
+    ]
+  }
+];
 @Injectable()
 export class MenuItems {
   getAll(): Menu[] {
     return MENUITEMS;
   }
+  getMenuSuperAdmin(): Menu[] {
+    return MENUITEMSSUPERADMIN;
+  }
 
-  /*add(menu: Menu) {
-    MENUITEMS.push(menu);
-  }*/
 }

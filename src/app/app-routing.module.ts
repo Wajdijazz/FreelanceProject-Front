@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AdminComponent} from './layout/admin/admin.component';
-import {AuthComponent} from './layout/auth/auth.component';
-import { BasicLoginComponent } from './pages/auth/login/basic-login/basic-login.component';
+
 
 const routes: Routes = [
   {
@@ -31,7 +30,13 @@ const routes: Routes = [
       },{
       path: 'add-person',
       loadChildren: () => import('./pages/add-person/add-person.module').then(m => m.AddPersonModule),
-    },
+    },{
+      path: 'company-client',
+      loadChildren: () => import('./pages/company-client/company-client.module').then(m => m.CompanyClientModule),
+     },{
+      path: 'add-company-client',
+      loadChildren: () => import('./pages/add-company-client/add-company-client.module').then(m => m.AddCompanyClientModule),
+     },
        {
         path: 'map',
         loadChildren: () => import('./pages/map/google-map/google-map.module').then(m => m.GoogleMapModule),

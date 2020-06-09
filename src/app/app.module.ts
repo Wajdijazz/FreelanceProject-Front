@@ -14,8 +14,8 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
-import { BasicLoginComponent } from './pages/auth/login/basic-login/basic-login.component';
 import { BasicLoginModule } from './pages/auth/login/basic-login/basic-login.module';
+import { AddCompanyClientComponent } from './pages/add-company-client/add-company-client.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -29,6 +29,9 @@ export function createTranslateLoader(http: HttpClient) {
     BreadcrumbsComponent,
     TitleComponent,
     AuthComponent,
+    AddCompanyClientComponent
+ 
+ 
   ],
 
   imports: [
@@ -39,6 +42,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     MatDialogModule,
     BasicLoginModule,
+  
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -50,5 +54,8 @@ export function createTranslateLoader(http: HttpClient) {
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [AddCompanyClientComponent],
+
+  
 })
 export class AppModule { }
