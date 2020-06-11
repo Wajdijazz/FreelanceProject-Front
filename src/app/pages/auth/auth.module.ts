@@ -9,6 +9,7 @@ import {SharedModule} from '../../shared/shared.module';
     AuthRoutingModule,
     SharedModule
   ],
-  declarations: []
+  declarations: [],
+
 })
 export class AuthModule { }

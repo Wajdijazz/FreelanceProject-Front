@@ -15,7 +15,12 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BasicLoginModule } from './pages/auth/login/basic-login/basic-login.module';
-import { AddCompanyClientComponent } from './pages/add-company-client/add-company-client.component';
+import { httpInterceptorProviders } from './pages/auth/auth-interceptor';
+import { CompanyClientService } from './services/company-client.service';
+import { AuthService } from './pages/auth/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddCompanyClientComponent } from './pages/add-models/add-company-client/add-company-client.component';
+import { UpdateCompanyClientComponent } from './pages/update-models/update-company-client/update-company-client.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -29,7 +34,8 @@ export function createTranslateLoader(http: HttpClient) {
     BreadcrumbsComponent,
     TitleComponent,
     AuthComponent,
-    AddCompanyClientComponent
+    AddCompanyClientComponent,
+    UpdateCompanyClientComponent
  
  
   ],
@@ -42,7 +48,8 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     MatDialogModule,
     BasicLoginModule,
-  
+    FormsModule,                            
+    ReactiveFormsModule,  
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -52,9 +59,9 @@ export function createTranslateLoader(http: HttpClient) {
   })
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [CompanyClientService,AuthService,httpInterceptorProviders],
   bootstrap: [AppComponent],
-  entryComponents: [AddCompanyClientComponent],
+  entryComponents: [AddCompanyClientComponent, UpdateCompanyClientComponent],
 
   
 })

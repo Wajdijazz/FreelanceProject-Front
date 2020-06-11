@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
-import { AddCompanyClientComponent } from '../add-company-client/add-company-client.component';
-import { NgbModal, NgbModalOptions, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { AddCompanyClientComponent } from '../../pages/add-models/add-company-client/add-company-client.component';
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { CompanyClientService } from '../../services/company-client.service';
+import { CompanyClient } from '../../models/company-client';
+import { Router, NavigationEnd } from '@angular/router';
+import { UpdateCompanyClientComponent } from '../update-models/update-company-client/update-company-client.component';
 
 @Component({
   selector: 'app-company-client',
@@ -9,34 +12,47 @@ import { NgbModal, NgbModalOptions, ModalDismissReasons } from '@ng-bootstrap/ng
   styleUrls: ['./company-client.component.scss']
 })
 export class CompanyClientComponent implements OnInit {
-  modalOptions:NgbModalOptions;
-  closeResult: string;
-  constructor(  private modalService: NgbModal) { 
-    this.modalOptions = {
-      backdrop:'static',
-      backdropClass:'customBackdrop'
-    }
-  }
+  companiesClients: CompanyClient[];
+  mySubscription: any;
+
+  constructor(private modalService: NgbModal, 
+    private companyClientService : CompanyClientService,
+    private router: Router) { 
+      this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+  };
+  this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+          this.router.navigated = false;
+      }
+  });}
 
   ngOnInit() {
-  
+   this.getAllCompanies();
   }
 
   addCompany() {
-    this.modalService.open(AddCompanyClientComponent, this.modalOptions).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    this.modalService.open(AddCompanyClientComponent);
   }
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
+
+  getAllCompanies() {
+    this.companyClientService
+    .getAllCompaniesClients().subscribe((companies: CompanyClient[]) => {
+      this.companiesClients = companies;
+  })
+  
   }
+
+  updateCompany(companyClient : CompanyClient) {
+    const modalRef = this.modalService.open(UpdateCompanyClientComponent);
+    modalRef.componentInstance.companyClient = companyClient;
+  }
+
+  deleteCompanyClient(companyClientId : Number) {
+    this.companyClientService.deleteCompanyClient(companyClientId);
+    this.getAllCompanies();
+    this.router.navigateByUrl('/company-client');
+  }
+
 
 }

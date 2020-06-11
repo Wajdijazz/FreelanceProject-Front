@@ -29,13 +29,17 @@ const routes: Routes = [
         loadChildren: () => import('./pages/person/person.module').then(m => m.PersonModule),
       },{
       path: 'add-person',
-      loadChildren: () => import('./pages/add-person/add-person.module').then(m => m.AddPersonModule),
+      loadChildren: () => import('./pages/add-models/add-person/add-person.module').then(m => m.AddPersonModule),
     },{
       path: 'company-client',
       loadChildren: () => import('./pages/company-client/company-client.module').then(m => m.CompanyClientModule),
      },{
       path: 'add-company-client',
-      loadChildren: () => import('./pages/add-company-client/add-company-client.module').then(m => m.AddCompanyClientModule),
+      loadChildren: () => import('./pages/add-models/add-company-client/add-company-client.module').then(m => m.AddCompanyClientModule),
+     },
+     {
+      path: 'update-company-client',
+      loadChildren: () => import('./pages/update-models/update-company-client/update-company-client.module').then(m => m.UpdateCompanyClientModule),
      },
        {
         path: 'map',

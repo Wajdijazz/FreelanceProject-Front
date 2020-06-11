@@ -14,6 +14,7 @@ import {MenuItems} from './menu-items/menu-items';
 import {ParentRemoveDirective} from './element/parent-remove.directive';
 import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 import {ClickOutsideModule} from 'ng-click-outside';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true

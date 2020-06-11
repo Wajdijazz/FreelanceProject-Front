@@ -9,6 +9,7 @@ import { AddCompanyClientRoutingModule } from './add-company-client-routing.modu
     imports: [
       CommonModule,
       AddCompanyClientRoutingModule,
+  
     ],
 
     declarations:  [AddCompanyClientComponent],

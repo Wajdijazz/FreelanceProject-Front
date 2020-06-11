@@ -1,0 +1,66 @@
+    <!-- starts -->
+    <div class="auth-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <!-- Authentication card start -->
+          <div class="login-card card-body auth-body">
+            <form  class="md-float-material" #f="ngForm" novalidate>
+              <div class="text-center">
+              </div>
+              <div class="auth-box">
+                <div class="row m-b-20">
+                  <div class="col-md-12">
+                    <h3 class="text-center txt-primary">Company client</h3>
+                  </div>
+                </div>
+                <hr/>
+                <div class="input-group">
+                  <input type="text"   class="form-control" name="companyName"
+                   [(ngModel)]="companyClient.companyName"  placeholder="Choose campany name" required/>
+                  <span class="md-line"></span>
+                </div>
+                <div class="input-group">
+                  <input type="text" class="form-control"  name="companyWebSite"
+                  [(ngModel)]="companyClient.companyWebSite"   placeholder="Url website">
+                  <span class="md-line"></span>
+                </div>
+                <div class="input-group">
+                  <input type="text" class="form-control"  name="firstNameContact"
+                  [(ngModel)]="companyClient.firstNameContact" placeholder="Contact first name" required>
+                  <span class="md-line"></span>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="lastNameContact"
+                    [(ngModel)]="companyClient.lastNameContact" placeholder="Contact last name" required>
+                    <span class="md-line"></span>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="emailContact"
+                    [(ngModel)]="companyClient.emailContact" placeholder="Contact email">
+                    <span class="md-line"></span>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="phoneContact"
+                    [(ngModel)]="companyClient.phoneContact" placeholder="Phone number contact">
+                    <span class="md-line"></span>
+                </div>
+                <div class="row m-t-30">
+                  <div class="col-md-12">
+                    <button type="button" (click)="addCompanyClient(companyClient)"
+                     class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">
+                     <i class="ti-save"></i> Save company</button>
+                  </div>
+                </div>
+                <hr/>
+              </div>
+            </form>
+            <!-- end of form -->
+          </div>
+          <!-- Authentication card end -->
+        </div>
+        <!-- end of col-sm-12 -->
+      </div>
+      <!-- end of row -->
+    </div>
+ 
+  

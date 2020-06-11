@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     BasicLoginRoutingModule,
     SharedModule,
-    FormsModule,                               // <========== Add this line!
+    FormsModule,                             
     ReactiveFormsModule,  
   ],
   declarations: [BasicLoginComponent]

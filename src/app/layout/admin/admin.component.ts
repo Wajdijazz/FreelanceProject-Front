@@ -189,7 +189,6 @@ export class AdminComponent implements OnInit {
                   return true;
                       });
                     }
-                    console.log(this.authority);
   }
   logout() {
     this.tokenStorage.signOut();

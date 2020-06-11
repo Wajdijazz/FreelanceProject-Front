@@ -8,65 +8,48 @@
         <div class="card-header">
           <h5 class="card-header-text">Campanies clients list</h5>
           <button (click)="addCompany()" id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
-            <i class="icofont icofont-edit"></i>
+            <i class="ti-pencil-alt"></i>
           </button>
         </div>
         <div class="card-body">
              <div class="table-responsive">
               <table class="table table-hover">
                <thead>
-              <tr>
-                <th>#</th>
+              <tr>  
                 <th>Name</th>
-                <th>Phone number</th>
                 <th>Web site</th>
-                <th>Firstname contact</th>
-                <th>Last contact</th>
-                <th>Email contact</th>
-                <th>Phone number contact</th>
+                <th>Contact name</th>
+                <th>Contact surname</th>
+                <th>Contact email</th>
+                <th>Contact phone</th>
                 <th>Actions</th>
 
   
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>IT</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>IT</td>
-                <td>IT</td>
-                <td>
-                <button  id="button" type="button" class="btn btn-sm btn-success waves-effect" (click)="addPerson()">
-                  <i class="icofont icofont-edit"></i>
+              <tr *ngFor="let companyclient of companiesClients">
+                <td>{{companyclient.companyName}}</td>
+                <td>{{companyclient.companyWebSite}}</td>
+                <td>{{companyclient.firstNameContact}}</td>
+                <td>{{companyclient.lastNameContact}}</td>
+                <td>{{companyclient.emailContact}}</td>
+                <td>{{companyclient.phoneContact}}</td>
+                <td> 
+                  <button class="button" class="btn btn-sm btn-success waves-effect">
+                    <i class="ti-id-badge"></i> register
+  
+                  </button>
+                <button (click)="updateCompany(companyclient)" class="button" class="btn btn-sm btn-info waves-effect">
+                  <i class="ti-pencil-alt"></i> edit
+
                 </button>
-                <button  id="button" type="button" class="btn btn-sm btn-danger waves-effect" (click)="addPerson()">
-                  <i class="icofont icofont-delete"></i>
-                </button>
-              </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>IT</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>IT</td>
-                <td>IT</td>
-                <td>
-                <button  id="button" type="button" class="btn btn-sm btn-success waves-effect" (click)="addPerson()">
-                  <i class="icofont icofont-edit"></i>
-                </button>
-                <button  id="button" type="button" class="btn btn-sm btn-danger waves-effect" (click)="addPerson()">
-                  <i class="icofont icofont-delete"></i>
+                <button (click)="deleteCompanyClient(companyclient.companyId)"class="button" class="btn btn-sm btn-danger waves-effect">
+                  <i class="ti-close"></i> Delete
+
                 </button>
               </td>
-              </tr>
-     
+              </tr> 
               </tbody>
           </table>
         </div>

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CompanyClientComponent } from './company-client.component';
+import { UpdateCompanyClientComponent } from './update-company-client.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CompanyClientComponent,
+    component: UpdateCompanyClientComponent,
     data: {
-      breadcrumb: 'Companies Clients',
+      breadcrumb: 'Upadate Companies Clients',
       icon: 'icofont-table bg-c-blue',
-      breadcrumb_caption: 'List of clients',
+      breadcrumb_caption: 'Upadate Companies Clients',
       status: true
     }
   }
@@ -19,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CompanyClientRoutingModule { }
+export class UpdateCompanyClientRoutingModule { }
