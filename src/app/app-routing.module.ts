@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AdminComponent} from './layout/admin/admin.component';
+import { UpdatePasswordComponent } from './pages/update-models/update-password/update-password.component';
 
 
 const routes: Routes = [
@@ -8,6 +9,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'update/:email',
+    component: UpdatePasswordComponent
   },
  
 
@@ -36,10 +41,12 @@ const routes: Routes = [
      },{
       path: 'add-company-client',
       loadChildren: () => import('./pages/add-models/add-company-client/add-company-client.module').then(m => m.AddCompanyClientModule),
-     },
-     {
+     },{
       path: 'update-company-client',
       loadChildren: () => import('./pages/update-models/update-company-client/update-company-client.module').then(m => m.UpdateCompanyClientModule),
+     },{
+      path: 'registration',
+      loadChildren: () => import('./pages/auth/registration/basic-reg/basic-reg.module').then(m => m.BasicRegModule),
      },
        {
         path: 'map',

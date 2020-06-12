@@ -34,7 +34,6 @@ export class BasicLoginComponent implements OnInit {
         data => {
      
           this.tokenStorage.saveToken(data.token);
-
           this.tokenStorage.saveUsername(data.username);
           this.tokenStorage.saveAuthorities(data.authorities);
 
@@ -45,7 +44,6 @@ export class BasicLoginComponent implements OnInit {
 
         },
         error => {
-          console.log(error);
           this.errorMessage = error.error.message;
           this.isLoginFailed = true;
         }

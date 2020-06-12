@@ -181,21 +181,21 @@ export class AdminComponent implements OnInit {
           if (role === 'SUPERADMIN') {
             this.authority = 'superadmin';
             return false;
-              } else if (role === 'ADMIN') {
+            } else if (role === 'ADMIN') {
                   this.authority = 'admin';
                   return false;
-                    }
+                  }
                   this.authority = 'user';
                   return true;
-                      });
-                    }
+                    });
+    }
   }
+
   logout() {
     this.tokenStorage.signOut();
     this.router.navigateByUrl('/login');
-
-
   }
+
   onResize(event) {
     this.innerHeight = event.target.innerHeight + 'px';
     /* menu responsive */

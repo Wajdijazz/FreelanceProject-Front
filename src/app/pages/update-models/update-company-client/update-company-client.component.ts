@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CompanyClient } from 'src/app/models/company-client';
+import { CompanyClient } from '../../../models/company-client';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CompanyClientService } from '../../../services/company-client.service';

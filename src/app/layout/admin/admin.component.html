@@ -17,9 +17,16 @@
           <a class="mobile-menu" id="mobile-collapse" href="javascript:;" (click)="toggleOpened()" [exclude]="'#main_navbar'" (clickOutside)="onClickedOutside($event)">
             <i class="ti-menu"></i>
           </a>
+          <div *ngIf="authority === 'superadmin'">
           <a [routerLink]="['/']">
             ASMA
           </a>
+          </div>
+          <div *ngIf="authority === 'admin'">
+            <a [routerLink]="['/']">
+              Admin
+            </a>
+            </div>
           <a (click)="onMobileMenu()" class="mobile-options">
             <i class="ti-more"></i>
           </a>

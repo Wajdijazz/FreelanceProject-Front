@@ -21,6 +21,8 @@ import { AuthService } from './pages/auth/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddCompanyClientComponent } from './pages/add-models/add-company-client/add-company-client.component';
 import { UpdateCompanyClientComponent } from './pages/update-models/update-company-client/update-company-client.component';
+import { BasicRegComponent } from './pages/auth/registration/basic-reg/basic-reg.component';
+import { UpdatePasswordComponent } from './pages/update-models/update-password/update-password.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -35,7 +37,9 @@ export function createTranslateLoader(http: HttpClient) {
     TitleComponent,
     AuthComponent,
     AddCompanyClientComponent,
-    UpdateCompanyClientComponent
+    UpdateCompanyClientComponent,
+    BasicRegComponent,
+    UpdatePasswordComponent
  
  
   ],
@@ -61,7 +65,7 @@ export function createTranslateLoader(http: HttpClient) {
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [CompanyClientService,AuthService,httpInterceptorProviders],
   bootstrap: [AppComponent],
-  entryComponents: [AddCompanyClientComponent, UpdateCompanyClientComponent],
+  entryComponents: [AddCompanyClientComponent, UpdateCompanyClientComponent,BasicRegComponent],
 
   
 })

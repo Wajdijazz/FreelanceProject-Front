@@ -36,7 +36,8 @@
                 <td>{{companyclient.emailContact}}</td>
                 <td>{{companyclient.phoneContact}}</td>
                 <td> 
-                  <button class="button" class="btn btn-sm btn-success waves-effect">
+                  <button class="button" (click)="register(companyclient.companyId, companyclient.emailContact)"
+                   class="btn btn-sm btn-success waves-effect">
                     <i class="ti-id-badge"></i> register
   
                   </button>
@@ -44,7 +45,8 @@
                   <i class="ti-pencil-alt"></i> edit
 
                 </button>
-                <button (click)="deleteCompanyClient(companyclient.companyId)"class="button" class="btn btn-sm btn-danger waves-effect">
+                <button (click)="deleteCompanyClient(companyclient.companyId)"class="button" 
+                class="btn btn-sm btn-danger waves-effect">
                   <i class="ti-close"></i> Delete
 
                 </button>

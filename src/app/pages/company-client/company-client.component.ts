@@ -5,6 +5,7 @@ import { CompanyClientService } from '../../services/company-client.service';
 import { CompanyClient } from '../../models/company-client';
 import { Router, NavigationEnd } from '@angular/router';
 import { UpdateCompanyClientComponent } from '../update-models/update-company-client/update-company-client.component';
+import { BasicRegComponent } from '../auth/registration/basic-reg/basic-reg.component';
 
 @Component({
   selector: 'app-company-client',
@@ -52,6 +53,13 @@ export class CompanyClientComponent implements OnInit {
     this.companyClientService.deleteCompanyClient(companyClientId);
     this.getAllCompanies();
     this.router.navigateByUrl('/company-client');
+  }
+
+  register(companyClientId : Number, emailContact: String) {
+    const modalRef = this.modalService.open(BasicRegComponent);
+    modalRef.componentInstance.companyClientId = companyClientId;
+    modalRef.componentInstance.emailContact = emailContact;
+
   }
 
 
