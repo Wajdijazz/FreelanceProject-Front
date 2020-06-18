@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthLoginInfo } from '../auth/login-info';
 import { Router } from '@angular/router';
-import { AuthLoginInfo } from '../../login-info';
-import { AuthService } from '../../auth.service';
-import { TokenStorageService } from '../../token-storage.service';
+import { AuthService } from '../auth/auth.service';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
-  selector: 'app-basic-login',
-  templateUrl: './basic-login.component.html',
-  styleUrls: ['./basic-login.component.scss']
+  selector: 'app-login-superadmin',
+  templateUrl: './login-superadmin.component.html',
+  styleUrls: ['./login-superadmin.component.scss']
 })
-export class BasicLoginComponent implements OnInit {
+export class LoginSuperadminComponent implements OnInit {
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
   private loginInfo: AuthLoginInfo;
+  @Input() emailContact;
 
   constructor( private router: Router,private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
@@ -25,7 +26,10 @@ export class BasicLoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
     }
+    this.form.email=this.emailContact;
+    this.form.password="test"
   }
+
   onSubmit(){
     this.loginInfo = new AuthLoginInfo(
       this.form.email,
@@ -51,8 +55,6 @@ export class BasicLoginComponent implements OnInit {
           this.isLoginFailed = true;
         }
       );
-
-  }
-
-
+      }
+  
 }

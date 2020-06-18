@@ -42,31 +42,8 @@ const MENUITEMS = [
         name: 'Dashboard',
         type: 'link',
         icon: 'ti-home'
-      },
-      {
-        state: 'basic',
-        short_label: 'B',
-        name: 'Basic Components',
-        type: 'sub',
-        icon: 'ti-layout-grid2-alt',
-        children: [
-          {
-            state: 'button',
-            name: 'Button'
-          },
-          {
-            state: 'typography',
-            name: 'Typography'
-          }
-        ]
-      },
-      {
-        state: 'notifications',
-        short_label: 'n',
-        name: 'Notifications',
-        type: 'link',
-        icon: 'ti-crown'
-      },
+      }
+   
     ],
   },
   {
@@ -78,128 +55,18 @@ const MENUITEMS = [
         name: 'Persons',
         type: 'link',
         icon: 'ti-receipt'
-      }
-  
-    ]
-  },
-  {
-    label: 'Login and Registration ',
-    main: [
-  
-      {
-        state: 'authentication',
-        short_label: 'A',
-        name: 'Authentication',
-        type: 'sub',
-        icon: 'ti-id-badge',
-        children: [
-          {
-            state: 'login',
-            type: 'link',
-            name: 'Login',
-            target: true
-          }, {
-            state: 'registration',
-            type: 'link',
-            name: 'Registration',
-            target: true
-          }
-        ]
       },
       {
-        state: 'user',
-        short_label: 'U',
-        name: 'User Profile',
+        state: 'item',
+        short_label: 'B',
+        name: 'Item',
         type: 'link',
-        icon: 'ti-user'
-      }
-    ]
-  },
-  {
-    label: 'Other',
-    main: [
-      {
-        state: '',
-        short_label: 'M',
-        name: 'Menu Levels',
-        type: 'sub',
-        icon: 'ti-direction-alt',
-        children: [
-          {
-            state: '',
-            name: 'Menu Level 2.1',
-            target: true
-          }, {
-            state: '',
-            name: 'Menu Level 2.2',
-            type: 'sub',
-            children: [
-              {
-                state: '',
-                name: 'Menu Level 2.2.1',
-                target: true
-              },
-              {
-                state: '',
-                name: 'Menu Level 2.2.2',
-                target: true
-              }
-            ]
-          }, {
-            state: '',
-            name: 'Menu Level 2.3',
-            target: true
-          }, {
-            state: '',
-            name: 'Menu Level 2.4',
-            type: 'sub',
-            children: [
-              {
-                state: '',
-                name: 'Menu Level 2.4.1',
-                target: true
-              },
-              {
-                state: '',
-                name: 'Menu Level 2.4.2',
-                target: true
-              }
-            ]
-          }
-        ]
+        icon: 'ti-receipt'
       },
       {
-        state: 'simple-page',
-        short_label: 'S',
-        name: 'Simple Page',
-        type: 'link',
-        icon: 'ti-layout-sidebar-left'
-      }
-    ]
-  }
-];
-const MENUITEMSSUPERADMIN = [
-  {
-    label: 'Navigation',
-    main: [
-      {
-        state: 'dashboard',
-        short_label: 'D',
-        name: 'Dashboard',
-        type: 'link',
-        icon: 'ti-home'
-      }
-     
-   
-    ],
-  },
-  {
-    label: 'Tables',
-    main: [
-      {
-        state: 'company-client',
-        short_label: 'C',
-        name: 'Clients',
+        state: 'mouvement',
+        short_label: 'B',
+        name: 'Mouvement',
         type: 'link',
         icon: 'ti-receipt'
       }
@@ -237,6 +104,22 @@ const MENUITEMSSUPERADMIN = [
         type: 'link',
         icon: 'ti-user'
       }
+    ]
+  },
+];
+const MENUITEMSSUPERADMIN = [
+
+  {
+    label: 'Tables',
+    main: [
+      {
+        state: 'company-client',
+        short_label: 'C',
+        name: 'Clients',
+        type: 'link',
+        icon: 'ti-receipt'
+      }
+  
     ]
   }
 ];

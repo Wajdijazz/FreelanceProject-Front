@@ -23,6 +23,8 @@ import { AddCompanyClientComponent } from './pages/add-models/add-company-client
 import { UpdateCompanyClientComponent } from './pages/update-models/update-company-client/update-company-client.component';
 import { BasicRegComponent } from './pages/auth/registration/basic-reg/basic-reg.component';
 import { UpdatePasswordComponent } from './pages/update-models/update-password/update-password.component';
+import { LoginSuperadminComponent } from './pages/login-superadmin/login-superadmin.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -39,7 +41,8 @@ export function createTranslateLoader(http: HttpClient) {
     AddCompanyClientComponent,
     UpdateCompanyClientComponent,
     BasicRegComponent,
-    UpdatePasswordComponent
+    UpdatePasswordComponent,
+    LoginSuperadminComponent
  
  
   ],
@@ -54,6 +57,7 @@ export function createTranslateLoader(http: HttpClient) {
     BasicLoginModule,
     FormsModule,                            
     ReactiveFormsModule,  
+    FileUploadModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -65,7 +69,11 @@ export function createTranslateLoader(http: HttpClient) {
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [CompanyClientService,AuthService,httpInterceptorProviders],
   bootstrap: [AppComponent],
-  entryComponents: [AddCompanyClientComponent, UpdateCompanyClientComponent,BasicRegComponent],
+  entryComponents: [
+    AddCompanyClientComponent, 
+    UpdateCompanyClientComponent,
+    BasicRegComponent,
+    LoginSuperadminComponent],
 
   
 })

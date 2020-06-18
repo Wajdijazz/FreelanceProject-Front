@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { CompanyClient } from '../../../models/company-client';
 import { CompanyClientService } from '../../../services/company-client.service';
 import { Router } from '@angular/router';
+import { BasicRegComponent } from '../../auth/registration/basic-reg/basic-reg.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-company-client',
@@ -10,18 +12,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-company-client.component.scss']
 })
 export class AddCompanyClientComponent implements OnInit {
+  company: any;
+  selectedFile: File;
 
   constructor(private router: Router,public activeModal: NgbActiveModal,
      private companyClientService : CompanyClientService,
-     private modalService: NgbActiveModal
+     private modalService: NgbModal, private modalServiceClose: NgbActiveModal
      ) { 
         
 }
 
-  companyClient : CompanyClient ={
+  companyClient : CompanyClient = {
     companyId : null,
     companyName : '',
-    companyPhone : null,
     companyWebSite : '',
     emailContact : '',
     firstNameContact : '',
@@ -34,11 +37,19 @@ export class AddCompanyClientComponent implements OnInit {
   }
 
   addCompanyClient(data : any){
-   this.companyClientService.saveCompanyClient(data);
-   this.modalService.close();
-   this.router.navigateByUrl('/company-client');
-  }
-
-
+    this.companyClientService.saveCompanyClient(data).subscribe(
+     res => {
+        console.log(res)
+        const modalRef = this.modalService.open(BasicRegComponent);
+        modalRef.componentInstance.company = res;
+      },
+      (err) =>    Swal.fire(
+        'error !',
+        'email already exist.',
+        'error'
+      )  
+    );
+  this.modalServiceClose.close();
+}
 
 }

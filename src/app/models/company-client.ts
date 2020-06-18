@@ -4,8 +4,6 @@ export class CompanyClient {
 
 	  companyName : String;
 
-	  companyPhone : number;
-
 	  companyWebSite : String;
 
 	  firstNameContact : String;

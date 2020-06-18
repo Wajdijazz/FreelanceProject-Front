@@ -17,16 +17,9 @@
           <a class="mobile-menu" id="mobile-collapse" href="javascript:;" (click)="toggleOpened()" [exclude]="'#main_navbar'" (clickOutside)="onClickedOutside($event)">
             <i class="ti-menu"></i>
           </a>
-          <div *ngIf="authority === 'superadmin'">
           <a [routerLink]="['/']">
-            ASMA
+            {{companyName}}
           </a>
-          </div>
-          <div *ngIf="authority === 'admin'">
-            <a [routerLink]="['/']">
-              Admin
-            </a>
-            </div>
           <a (click)="onMobileMenu()" class="mobile-options">
             <i class="ti-more"></i>
           </a>
@@ -115,11 +108,13 @@
                 </a>
               </li>
               <li class="user-profile header-notification">
-                <a [routerLink]="['/']">
-                  <img src="assets/images/wajdi.jpg" class="img-radius" alt="User-Profile-Image">
-                  <span>Mohamed Wajdi Jaziri</span>
-                  <i class="ti-angle-down"></i>
-                </a>
+                  <a>
+                     <img src="assets/images/inconnu.png" class="img-radius" alt="User-Profile-Image">
+                     <span>{{userFirstName}}  {{userLastName}}</span>
+                     <i class="ti-angle-down"></i>
+                     
+                 </a>
+           
                 <ul class="show-notification profile-notification">
                   <li>
                     <a [routerLink]="['/crm-contact']">
@@ -142,7 +137,7 @@
                     </a>
                   </li>
                   <li>
-                    <a (click)="logout()">
+                    <a  [routerLink]="" (click)="logout()">
                       <i class="ti-layout-sidebar-left"></i> Logout
                     </a>
                   </li>
@@ -164,11 +159,19 @@
           <div class="pcoded-inner-navbar main-menu" appAccordion>
             <div class="">
               <div class="main-menu-header">
-                <img class="img-40 img-radius" src="assets/images/wajdi.jpg" alt="User-Profile-Image">
-                <div class="user-details">
-                  <span>Mohamed Wajdi Jaziri</span>
-                  <span id="more-details" (click)="toggleOpenedSidebar()">Software Engineer<i class="ti-angle-down"></i></span>
-                </div>
+            
+                  <input type="image"  class="img-40 img-radius" src="assets/images/inconnu.png" alt="User-Profile-Image">
+            
+             
+                  <div class="user-details">
+                    <span>{{userFirstName}}  {{userLastName}}</span>
+                    <span id="more-details" (click)="toggleOpenedSidebar()">{{role}}<i class="ti-angle-down"></i></span>
+                  </div>
+            <!--
+  <label for="file" class="label-file">Choisir une image</label>
+                  <input id="file" class="input-file" type="file">
+            -->    
+      
               </div>
               <div class="main-menu-content">
                 <ul>

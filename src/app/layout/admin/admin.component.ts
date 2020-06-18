@@ -4,6 +4,8 @@ import {MenuItems} from '../../shared/menu-items/menu-items';
 import { TranslateService } from '@ngx-translate/core';  
 import { TokenStorageService } from '../../pages/auth/token-storage.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { userDetail } from '../../models/user-detail';
 
 @Component({
   selector: 'app-admin',
@@ -106,9 +108,15 @@ export class AdminComponent implements OnInit {
   language: any;
   private roles: string[];
   private authority: string;
+  companyName: any;
+  userFirstName: String;
+  userLastName: String;
+  userPhone: String;
+  role: string;
+  selectedFile: File;
 
   constructor(private router: Router, public menuItems: MenuItems, public translate: TranslateService,
-     private tokenStorage: TokenStorageService) {
+     private tokenStorage: TokenStorageService, private userService : UserService) {
     translate.setDefaultLang('English'); 
     this.navType = 'st5';
     this.themeLayout = 'vertical';
@@ -180,20 +188,37 @@ export class AdminComponent implements OnInit {
         this.roles.every(role => {
           if (role === 'SUPERADMIN') {
             this.authority = 'superadmin';
+            this.role = "CEO ASMA"
             return false;
             } else if (role === 'ADMIN') {
-                  this.authority = 'admin';
-                  return false;
-                  }
-                  this.authority = 'user';
-                  return true;
-                    });
+              this.authority = 'admin';
+                this.role = "Administrator";
+                return false;
+          }
+        this.authority = 'user';
+        return true;
+     });
     }
+    this.getUserLoggedInfo();
+  }
+
+  selectFile(event) {
+    this.selectedFile = event.target.files[0];
   }
 
   logout() {
     this.tokenStorage.signOut();
     this.router.navigateByUrl('/login');
+  }
+
+  getUserLoggedInfo() {
+    let email = this.tokenStorage.getUsername();
+      this.userService.getUserInfor(email).subscribe((data : userDetail) => {
+        this.companyName = data.companyName;
+        this.userFirstName = data.userFirstName;
+        this.userLastName = data.userLastName;
+        this.userPhone = data.userPhone;
+    });
   }
 
   onResize(event) {

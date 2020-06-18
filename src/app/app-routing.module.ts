@@ -11,11 +11,9 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'update/:email',
+    path: 'reset/:token' ,  
     component: UpdatePasswordComponent
   },
- 
-
   {
     path: '',
     component: AdminComponent,

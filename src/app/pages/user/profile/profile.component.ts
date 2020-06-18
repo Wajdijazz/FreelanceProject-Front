@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
+import { TokenStorageService } from '../../auth/token-storage.service';
+import { UserService } from '../../../services/user.service';
+import { userDetail } from '../../../models/user-detail';
 
 @Component({
   selector: 'app-profile',
@@ -33,11 +36,18 @@ export class ProfileComponent implements OnInit {
   public sortBy = '';
   public sortOrder = 'desc';
   profitChartOption: any;
+  companyName: any;
+  userFirstName: any;
+  userLastName: any;
+  userPhone: any;
+  email: string;
+  companyWebSite: String;
 
-  constructor() {
+  constructor(private tokenStorage: TokenStorageService, private userService : UserService) {
   }
 
   ngOnInit() {
+    this.getUserLoggedInfo();
   }
 
   toggleEditProfile() {
@@ -48,6 +58,16 @@ export class ProfileComponent implements OnInit {
   toggleEditAbout() {
     this.editAboutIcon = (this.editAboutIcon === 'icofont-close') ? 'icofont-edit' : 'icofont-close';
     this.editAbout = !this.editAbout;
+  }
+  getUserLoggedInfo() {
+    let email = this.tokenStorage.getUsername();
+      this.userService.getUserInfor(email).subscribe((data : userDetail) => {
+        this.userFirstName = data.userFirstName;
+        this.userLastName = data.userLastName;
+        this.userPhone = data.userPhone;
+        this.companyWebSite = data.companyWebSite;
+        this.email = email;
+    });
   }
 
 }

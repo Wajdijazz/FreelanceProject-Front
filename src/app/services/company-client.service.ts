@@ -9,16 +9,13 @@ import { config } from '../config';
 export class CompanyClientService {
 
   private companyClientUrl = `${config.apiUrl}/companyClient/`;
+  companySaved: any;
 
   constructor(private http: HttpClient) { }
 
   saveCompanyClient(data: CompanyClient) {
-    this.http.post(this.companyClientUrl, data)
-        .subscribe(
-            res => {
-            }
-        );
-   }
+    return this.http.post(this.companyClientUrl, data);
+  }
 
   getAllCompaniesClients() {
     return this.http.get(this.companyClientUrl);
@@ -30,14 +27,14 @@ export class CompanyClientService {
             res => {
             }
         );
-   }
+  }
 
-   deleteCompanyClient(companyClientdId: Number) {
+  deleteCompanyClient(companyClientdId: Number) {
     this.http.delete(this.companyClientUrl+`${companyClientdId}`)
         .subscribe(
             res => {
             }
         );
-}
+  }  
 
 }

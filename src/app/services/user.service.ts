@@ -10,23 +10,26 @@ export class UserService {
 
   private signupUrl = `${config.apiUrl}/user/register`;
   private updateUrl = `${config.apiUrl}/user/update`;
+  private detailUrl = `${config.apiUrl}/user/details`;
+
 
   
   constructor(private http: HttpClient) { }
 
   saveUser(data: User) {
-    this.http.post(this.signupUrl, data)
-        .subscribe(
-            res => {
-            }
-        );
-   }
+    return this.http.post(this.signupUrl, data);
+  }
 
-   updatePasswordUser(data: any) {
+  updatePasswordUser(data: any) {
     this.http.put(this.updateUrl, data)
         .subscribe(
             res => {
-            }
-        );
-   }
+          }
+       );
+  }
+
+  getUserInfor(email : String) {
+    return  this.http.get(this.detailUrl+`/${email}`);
+  }
+
 }

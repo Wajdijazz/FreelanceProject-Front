@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-update-password',
@@ -18,8 +19,9 @@ export class UpdatePasswordComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.user.email =  String(this.route.snapshot.paramMap.get('email'));
-    console.log(this.user.email)
+    let token =  String(this.route.snapshot.paramMap.get('token'));
+    let decode = jwt_decode(token);
+    this.user.email = decode.sub;
   }
 
   updatePassword (user : any){
