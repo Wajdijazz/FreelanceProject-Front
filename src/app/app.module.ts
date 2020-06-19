@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 import { AdminComponent } from './layout/admin/admin.component';
 import { BreadcrumbsComponent } from './layout/admin/breadcrumbs/breadcrumbs.component';
@@ -25,6 +23,10 @@ import { BasicRegComponent } from './pages/auth/registration/basic-reg/basic-reg
 import { UpdatePasswordComponent } from './pages/update-models/update-password/update-password.component';
 import { LoginSuperadminComponent } from './pages/login-superadmin/login-superadmin.component';
 import {FileUploadModule} from 'ng2-file-upload';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AddDepartmentComponent } from './pages/add-models/add-department/add-department.component';
+import { UpdateDepartmentComponent } from './pages/update-models/update-department/update-department.component';
+
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -42,7 +44,10 @@ export function createTranslateLoader(http: HttpClient) {
     UpdateCompanyClientComponent,
     BasicRegComponent,
     UpdatePasswordComponent,
-    LoginSuperadminComponent
+    LoginSuperadminComponent,
+    AddDepartmentComponent,
+    UpdateDepartmentComponent,
+
  
  
   ],
@@ -67,13 +72,17 @@ export function createTranslateLoader(http: HttpClient) {
   })
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [CompanyClientService,AuthService,httpInterceptorProviders],
+  providers: [CompanyClientService,AuthService,httpInterceptorProviders,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService],
   bootstrap: [AppComponent],
   entryComponents: [
     AddCompanyClientComponent, 
     UpdateCompanyClientComponent,
     BasicRegComponent,
-    LoginSuperadminComponent],
+    LoginSuperadminComponent,
+    AddDepartmentComponent,
+    UpdateDepartmentComponent],
 
   
 })

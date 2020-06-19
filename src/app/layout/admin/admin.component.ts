@@ -190,8 +190,8 @@ export class AdminComponent implements OnInit {
             this.authority = 'superadmin';
             this.role = "CEO ASMA"
             return false;
-            } else if (role === 'ADMIN') {
-              this.authority = 'admin';
+            } else if (role === 'GESTIONARY') {
+              this.authority = 'gestionray';
                 this.role = "Administrator";
                 return false;
           }

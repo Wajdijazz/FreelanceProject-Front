@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AdminComponent} from './layout/admin/admin.component';
 import { UpdatePasswordComponent } from './pages/update-models/update-password/update-password.component';
-
+import {  RoleGuardService as RoleGuard   } from './pages/auth/role-guard.service';
 
 const routes: Routes = [
   {
@@ -27,14 +27,11 @@ const routes: Routes = [
       }, {
         path: 'notifications',
         loadChildren: () => import('./pages/ui-elements/advance/notifications/notifications.module').then(m => m.NotificationsModule)
-      }, {
-        path: 'persons',
-        loadChildren: () => import('./pages/person/person.module').then(m => m.PersonModule),
       },{
       path: 'add-person',
       loadChildren: () => import('./pages/add-models/add-person/add-person.module').then(m => m.AddPersonModule),
     },{
-      path: 'company-client',
+      path: 'company-client', canActivate: [RoleGuard], data: {expectedRole: 'SUPERADMIN'},
       loadChildren: () => import('./pages/company-client/company-client.module').then(m => m.CompanyClientModule),
      },{
       path: 'add-company-client',
@@ -42,7 +39,12 @@ const routes: Routes = [
      },{
       path: 'update-company-client',
       loadChildren: () => import('./pages/update-models/update-company-client/update-company-client.module').then(m => m.UpdateCompanyClientModule),
-     },{
+     },
+     {
+      path: 'employees/department',
+      loadChildren: () => import('./pages/employees/department/department.module').then(m => m.DepartmentModule),
+     },
+     {
       path: 'registration',
       loadChildren: () => import('./pages/auth/registration/basic-reg/basic-reg.module').then(m => m.BasicRegModule),
      },
@@ -50,7 +52,7 @@ const routes: Routes = [
         path: 'map',
         loadChildren: () => import('./pages/map/google-map/google-map.module').then(m => m.GoogleMapModule),
       }, {
-        path: 'user',
+        path: 'user', canActivate: [RoleGuard], data: {expectedRole: 'SUPERADMIN'},
         loadChildren: () => import('./pages/user/profile/profile.module').then(m => m.ProfileModule)
       }, {
         path: 'simple-page',

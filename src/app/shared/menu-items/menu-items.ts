@@ -50,11 +50,22 @@ const MENUITEMS = [
     label: 'Tables',
     main: [
       {
-        state: 'persons',
+        state: 'employees',
         short_label: 'B',
-        name: 'Persons',
-        type: 'link',
-        icon: 'ti-receipt'
+        name: 'Employees',
+        type: 'sub',
+        icon: 'ti-receipt',
+        children: [
+          {
+            state: 'department',
+            type: 'link',
+            name: 'Departments',
+          }, {
+            state: 'persons',
+            type: 'link',
+            name: 'Persons',
+          }
+        ]
       },
       {
         state: 'item',
@@ -118,6 +129,13 @@ const MENUITEMSSUPERADMIN = [
         name: 'Clients',
         type: 'link',
         icon: 'ti-receipt'
+      },    
+      {
+        state: 'user',
+        short_label: 'U',
+        name: 'User Profile',
+        type: 'link',
+        icon: 'ti-user'
       }
   
     ]

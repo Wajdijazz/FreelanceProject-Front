@@ -41,7 +41,7 @@ export class BasicLoginComponent implements OnInit {
           this.roles.every(role => {
             if (role === "SUPERADMIN") {
               this.router.navigateByUrl('/company-client');
-            } else if (role === "ADMIN") {
+            } else if (role === "GESTIONARY") {
             this.router.navigateByUrl('/dashboard');
             }
           })

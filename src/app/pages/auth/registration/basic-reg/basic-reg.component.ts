@@ -40,7 +40,7 @@ export class BasicRegComponent implements OnInit {
 
   saveAdminCompany(admin : User) {
     this.user.email = this.company.emailContact;
-    this.user.role.push("ADMIN");
+    this.user.role.push("GESTIONARY");
     this.user.companyClientId = this.company.companyId;
     this.user.personId = this.company.personId;
     this.user.password = admin.password;
@@ -56,7 +56,9 @@ export class BasicRegComponent implements OnInit {
         Swal.fire('error !','Profil not created.','error') ;
         this.companyClientService.deleteCompanyClient( this.company.companyId);
        }
-     );
+    );
+    this.modalService.close();
+    this.router.navigateByUrl('/company-client');
   }
    
 }

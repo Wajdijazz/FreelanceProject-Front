@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PersonComponent } from './person.component';
+import { DepartmentComponent } from './department.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PersonComponent,
+    component: DepartmentComponent,
     data: {
-      breadcrumb: 'persons',
+      breadcrumb: 'department',
       icon: 'icofont-table bg-c-blue',
-      breadcrumb_caption: 'List of persons',
+      breadcrumb_caption: 'List of departments',
       status: true
     }
   }
@@ -19,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PersonRoutingModule { }
+export class DepartmentRoutingModule { }

@@ -22,12 +22,13 @@ export class CompanyClientComponent implements OnInit {
     private router: Router) { 
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
-  };
+    };
   this.mySubscription = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
           this.router.navigated = false;
       }
-  });}
+    });
+  }
 
   ngOnInit() {
    this.getAllCompanies();
