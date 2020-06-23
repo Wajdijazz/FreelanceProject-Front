@@ -61,7 +61,7 @@ const MENUITEMS = [
             type: 'link',
             name: 'Departments',
           }, {
-            state: 'persons',
+            state: 'person',
             type: 'link',
             name: 'Persons',
           }

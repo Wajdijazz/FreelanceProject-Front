@@ -11,8 +11,8 @@ export class DepartmentService {
 
   private departmentUrl = `${config.apiUrl}/department/`;
 
-  getAllDepartments() {
-    return this.http.get(this.departmentUrl);
+  getAllDepartments(companyId : Number) {
+    return this.http.get(this.departmentUrl+`${companyId}`);
   }
 
   addDepartment(data: any) {

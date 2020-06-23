@@ -18,9 +18,9 @@ export class UpdateCompanyClientComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateCompanyClient (companyClientFurm : CompanyClient) {
+  updateCompanyClient (companyClientForm : CompanyClient) {
     this.companyClientService
-    .updateCompanyClient(companyClientFurm, this.companyClient.companyId);
+    .updateCompanyClient(companyClientForm, this.companyClient.companyId);
     this.modalService.close();
     this.router.navigateByUrl('/company-client');
 

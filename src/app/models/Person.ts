@@ -8,4 +8,8 @@ export class Person {
 
  phoneNumber : Number;
 
+ departmentId : Number;
+
+ companyId : Number;
+
 }

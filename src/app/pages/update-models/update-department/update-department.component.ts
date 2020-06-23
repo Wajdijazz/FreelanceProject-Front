@@ -21,6 +21,7 @@ export class UpdateDepartmentComponent implements OnInit {
   }
 
   updateDepartment(department : Department) {
+    department.departmentId = this.department.departmentId;
     this.departementService.updateDepartment(department);
     this.modalServiceClose.close();
     this.router.navigateByUrl('/employees/department');

@@ -41,8 +41,12 @@ const routes: Routes = [
       loadChildren: () => import('./pages/update-models/update-company-client/update-company-client.module').then(m => m.UpdateCompanyClientModule),
      },
      {
-      path: 'employees/department',
+      path: 'employees/department', canActivate: [RoleGuard], data: {expectedRole: 'GESTIONARY'},
       loadChildren: () => import('./pages/employees/department/department.module').then(m => m.DepartmentModule),
+     },
+     {
+      path: 'employees/person', canActivate: [RoleGuard], data: {expectedRole: 'GESTIONARY'},
+      loadChildren: () => import('./pages/employees/person/person.module').then(m => m.PersonModule),
      },
      {
       path: 'registration',

@@ -26,6 +26,8 @@ import {FileUploadModule} from 'ng2-file-upload';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AddDepartmentComponent } from './pages/add-models/add-department/add-department.component';
 import { UpdateDepartmentComponent } from './pages/update-models/update-department/update-department.component';
+import { AddPersonComponent } from './pages/add-models/add-person/add-person.component';
+import { UpdatePersonComponent } from './pages/update-models/update-person/update-person.component';
 
 
 
@@ -47,6 +49,8 @@ export function createTranslateLoader(http: HttpClient) {
     LoginSuperadminComponent,
     AddDepartmentComponent,
     UpdateDepartmentComponent,
+    AddPersonComponent,
+    UpdatePersonComponent,
 
  
  
@@ -82,7 +86,9 @@ export function createTranslateLoader(http: HttpClient) {
     BasicRegComponent,
     LoginSuperadminComponent,
     AddDepartmentComponent,
-    UpdateDepartmentComponent],
+    UpdateDepartmentComponent,
+    AddPersonComponent,
+    UpdatePersonComponent],
 
   
 })

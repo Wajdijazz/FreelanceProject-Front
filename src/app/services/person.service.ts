@@ -8,12 +8,37 @@ import { Person } from '../models/Person';
 })
 
 export class PersonService {
+
   
   private personUrl = `${config.apiUrl}/person/`;
 
   constructor(private http: HttpClient) { }
 
   savePerson(data : Person) {
-    this.http.post(this.personUrl, data);
+    this.http.post(this.personUrl, data).subscribe(
+      res => {
+      }
+    );
   }
+
+  updatePerson(data : Person) {
+    this.http.put(this.personUrl, data).subscribe(
+      res => {
+      }
+    );
+  }
+   
+  getAllPersons(companyId : Number) {
+    return this.http.get(this.personUrl+`${companyId}`);
+  }
+
+  deletePerson(personId: Number) {
+    this.http.delete(this.personUrl+`${personId}`)
+    .subscribe(
+        res => {
+        }
+    );
+  }
+
+
 }

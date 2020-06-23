@@ -5,6 +5,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddDepartmentComponent } from '../../add-models/add-department/add-department.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { UpdateDepartmentComponent } from '../../update-models/update-department/update-department.component';
+import { TokenStorageService } from '../../auth/token-storage.service';
+import { UserService } from '../../../services/user.service';
+import { userDetail } from '../../../models/user-detail';
+import { throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-department',
@@ -17,7 +21,8 @@ export class DepartmentComponent implements OnInit {
 
   constructor(private departmentService : DepartmentService, 
     private modalService: NgbModal,
-    private router: Router) { 
+    private router: Router,
+    private tokenStorage: TokenStorageService, private userService : UserService) { 
 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -35,9 +40,12 @@ export class DepartmentComponent implements OnInit {
   }
 
   getDepartments(){
-    this.departmentService.getAllDepartments().subscribe((data : Department [] )=> {
-      this.departments = data;
-    })
+    let email = this.tokenStorage.getUsername();
+    this.userService.getUserInfor(email).subscribe((data : userDetail) => {
+        this.departmentService.getAllDepartments(data.companyId).subscribe((data : Department [] )=> {
+        this.departments = data;
+      })
+    });
   }
 
   addDepartment() {
@@ -53,5 +61,6 @@ export class DepartmentComponent implements OnInit {
     const modalRef = this.modalService.open(UpdateDepartmentComponent);
     modalRef.componentInstance.department = department;
   }
+
 
 }

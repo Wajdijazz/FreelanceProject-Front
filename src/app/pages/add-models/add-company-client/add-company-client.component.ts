@@ -39,7 +39,6 @@ export class AddCompanyClientComponent implements OnInit {
   addCompanyClient(data : any){
     this.companyClientService.saveCompanyClient(data).subscribe(
      res => {
-        console.log(res)
         const modalRef = this.modalService.open(BasicRegComponent);
         modalRef.componentInstance.company = res;
       },
