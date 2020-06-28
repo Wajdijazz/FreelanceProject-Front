@@ -49,6 +49,10 @@ const routes: Routes = [
       loadChildren: () => import('./pages/employees/person/person.module').then(m => m.PersonModule),
      },
      {
+      path: 'provider', canActivate: [RoleGuard], data: {expectedRole: 'GESTIONARY'},
+      loadChildren: () => import('./pages/provider/provider.module').then(m => m.ProviderModule),
+     },
+     {
       path: 'registration',
       loadChildren: () => import('./pages/auth/registration/basic-reg/basic-reg.module').then(m => m.BasicRegModule),
      },

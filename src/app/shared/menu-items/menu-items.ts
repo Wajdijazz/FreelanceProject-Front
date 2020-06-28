@@ -75,9 +75,9 @@ const MENUITEMS = [
         icon: 'ti-receipt'
       },
       {
-        state: 'mouvement',
-        short_label: 'B',
-        name: 'Mouvement',
+        state: 'provider',
+        short_label: 'P',
+        name: 'Provider',
         type: 'link',
         icon: 'ti-receipt'
       }

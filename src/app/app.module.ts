@@ -28,6 +28,8 @@ import { AddDepartmentComponent } from './pages/add-models/add-department/add-de
 import { UpdateDepartmentComponent } from './pages/update-models/update-department/update-department.component';
 import { AddPersonComponent } from './pages/add-models/add-person/add-person.component';
 import { UpdatePersonComponent } from './pages/update-models/update-person/update-person.component';
+import { AddProviderComponent } from './pages/add-models/add-provider/add-provider.component';
+import { UpdateProviderComponent } from './pages/update-models/update-provider/update-provider.component';
 
 
 
@@ -51,6 +53,8 @@ export function createTranslateLoader(http: HttpClient) {
     UpdateDepartmentComponent,
     AddPersonComponent,
     UpdatePersonComponent,
+    AddProviderComponent,
+    UpdateProviderComponent,
 
  
  
@@ -88,7 +92,9 @@ export function createTranslateLoader(http: HttpClient) {
     AddDepartmentComponent,
     UpdateDepartmentComponent,
     AddPersonComponent,
-    UpdatePersonComponent],
+    UpdatePersonComponent,
+    AddProviderComponent,
+    UpdateProviderComponent],
 
   
 })

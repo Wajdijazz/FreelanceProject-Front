@@ -1,0 +1,49 @@
+
+
+<div class="row">
+    <div class="col-sm-12">
+  
+   
+      <!-- Inverse table card end -->
+      <!-- Hover table card start -->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-header-text">Provider list</h5>
+          <button (click)="addProvider()" id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
+            <i class="ti-pencil-alt"></i>
+          </button>
+        </div>
+        <div class="card-body">
+             <div class="table-responsive">
+              <table class="table table-hover">
+               <thead>
+                <tr>  
+                  <th>Name</th>
+                  <th>Creation date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor = "let provider of providers">
+                  <td>{{provider.name}}</td>
+                  <td>{{provider.creationDate}}</td>
+                  <td> 
+                     <button class="button" (click) = "updateProvider(provider)"
+                      class="btn btn-sm btn-success waves-effect">
+                      <i class="ti-pencil-alt"></i> Edit
+                     </button>
+                     <button class="button"  (click) = "deleteProvider(provider.providerId)"
+                     class="btn btn-sm btn-danger waves-effect">
+                    <i class="ti-close"></i> Delete
+                     </button>
+                 </td>
+              </tr> 
+              </tbody>
+          </table>
+        </div>
+      </div>
+    
+      <!-- Background Utilities table end -->
+    </div>
+  </div>
+  
