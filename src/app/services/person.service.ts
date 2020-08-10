@@ -32,6 +32,10 @@ export class PersonService {
     return this.http.get(this.personUrl+`${companyId}`);
   }
 
+  getPersonListToAffectToUsers(companyId : Number) {
+    return this.http.get(this.personUrl+`personList/${companyId}`);
+  }
+
   deletePerson(personId: Number) {
     this.http.delete(this.personUrl+`${personId}`)
     .subscribe(

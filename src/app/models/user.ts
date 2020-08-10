@@ -13,4 +13,6 @@ export class User {
 
   role : any;
 
+  autorized: String;
+
 }

@@ -1,0 +1,55 @@
+
+
+<div class="row">
+    <div class="col-sm-12">
+  
+   
+      <!-- Inverse table card end -->
+      <!-- Hover table card start -->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-header-text">Localisation list</h5>
+          <button (click)="addLocalisation()" id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
+            <i class="ti-pencil-alt"></i>
+          </button>
+        </div>
+        <div class="card-body">
+             <div class="table-responsive">
+              <table class="table table-hover">
+               <thead>
+                <tr>  
+                  <th>Description</th>
+                  <th>Created date</th>
+                  <th>is a Stock </th>
+                  <th>Action</th>
+
+
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor = "let localisation of localisations">
+                  <td>{{localisation.description}}</td>
+                  <td>{{localisation.creationDate}}</td>
+                  <td>{{localisation.isInStock}}</td>
+
+            
+                  <td> 
+                    <button class="button" (click) = "updateLocalisation(localisation)"
+                    class="btn btn-sm btn-success waves-effect">
+                    <i class="ti-pencil-alt"></i> Edit
+                   </button>
+                     <button class="button"  (click) = "deleteLocalisation(localisation.localisationId)"
+                     class="btn btn-sm btn-danger waves-effect">
+                    <i class="ti-trash"></i> Delete
+                     </button>
+                 </td>
+              </tr> 
+              </tbody>
+          </table>
+        </div>
+      </div>
+    
+      <!-- Background Utilities table end -->
+    </div>
+  </div>
+  

@@ -49,6 +49,18 @@ const routes: Routes = [
       loadChildren: () => import('./pages/employees/person/person.module').then(m => m.PersonModule),
      },
      {
+      path: 'item/localisation', canActivate: [RoleGuard], data: {expectedRole: 'GESTIONARY'},
+      loadChildren: () => import('./pages/Items/localisation/localisation.module').then(m => m.LocalisationModule),
+     },
+     {
+      path: 'item/family', canActivate: [RoleGuard], data: {expectedRole: 'GESTIONARY'},
+      loadChildren: () => import('./pages/Items/item-family/item-family.module').then(m => m.ItemFamilyModule),
+     },
+     {
+      path: 'user', canActivate: [RoleGuard], data: {expectedRole: 'GESTIONARY'},
+      loadChildren: () => import('./pages/user/users/users.module').then(m => m.UsersModule),
+     },
+     {
       path: 'provider', canActivate: [RoleGuard], data: {expectedRole: 'GESTIONARY'},
       loadChildren: () => import('./pages/provider/provider.module').then(m => m.ProviderModule),
      },

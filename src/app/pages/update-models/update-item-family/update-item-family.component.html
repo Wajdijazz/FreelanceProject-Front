@@ -1,0 +1,41 @@
+    <!-- starts -->
+    <div class="auth-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- Authentication card start -->
+            <div class="login-card card-body auth-body">
+              <form  class="md-float-material" #f="ngForm" novalidate>
+                <div class="text-center">
+                </div>
+                <div class="auth-box">
+                  <div class="row m-b-20">
+                    <div class="col-md-12">
+                      <h3 class="text-center txt-primary">Item Family</h3>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div class="input-group">
+                    <input type="text"   class="form-control" name="first"
+                     [(ngModel)]="itemFamily.description"   placeholder="Choose descrption of item Family" required/>
+                    <span class="md-line"></span>
+                  </div>
+                  <div class="row m-t-30">
+                    <div class="col-md-12">
+                      <button type="button" (click)="updateItemFamily(itemFamily)"
+                       class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">
+                       <i class="ti-save"></i> Update item family</button>
+                    </div>
+                  </div>
+                  <hr/>
+                </div>
+              </form>
+              <!-- end of form -->
+            </div>
+            <!-- Authentication card end -->
+          </div>
+          <!-- end of col-sm-12 -->
+        </div>
+        <!-- end of row -->
+      </div>
+   
+    

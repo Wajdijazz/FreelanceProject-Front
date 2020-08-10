@@ -30,6 +30,11 @@ import { AddPersonComponent } from './pages/add-models/add-person/add-person.com
 import { UpdatePersonComponent } from './pages/update-models/update-person/update-person.component';
 import { AddProviderComponent } from './pages/add-models/add-provider/add-provider.component';
 import { UpdateProviderComponent } from './pages/update-models/update-provider/update-provider.component';
+import { AddUserComponent } from './pages/add-models/add-user/add-user.component';
+import { AddLocalisationComponent } from './pages/add-models/add-localisation/add-localisation.component';
+import { UpdateLocalisationComponent } from './pages/update-models/update-localisation/update-localisation.component';
+import { AddItemFamilyComponent } from './pages/add-models/add-item-family/add-item-family.component';
+import { UpdateItemFamilyComponent } from './pages/update-models/update-item-family/update-item-family.component';
 
 
 
@@ -55,6 +60,11 @@ export function createTranslateLoader(http: HttpClient) {
     UpdatePersonComponent,
     AddProviderComponent,
     UpdateProviderComponent,
+    AddUserComponent,
+    AddLocalisationComponent,
+    UpdateLocalisationComponent,
+    AddItemFamilyComponent,
+    UpdateItemFamilyComponent,
 
  
  
@@ -94,7 +104,12 @@ export function createTranslateLoader(http: HttpClient) {
     AddPersonComponent,
     UpdatePersonComponent,
     AddProviderComponent,
-    UpdateProviderComponent],
+    UpdateProviderComponent,
+    AddUserComponent,
+    AddLocalisationComponent,
+    UpdateLocalisationComponent,
+    AddItemFamilyComponent,
+    UpdateItemFamilyComponent],
 
   
 })

@@ -26,7 +26,6 @@ export interface MainMenuItems {
 }
 
 export interface Menu {
-  label: string;
   main: MainMenuItems[];
 }
 
@@ -34,20 +33,20 @@ export interface Menu {
 
 const MENUITEMS = [
   {
-    label: 'Navigation',
+   
     main: [
       {
         state: 'dashboard',
         short_label: 'D',
         name: 'Dashboard',
         type: 'link',
-        icon: 'ti-home'
+        icon: 'ti-layout-grid2-alt'
       }
    
     ],
   },
   {
-    label: 'Tables',
+  
     main: [
       {
         state: 'employees',
@@ -68,24 +67,49 @@ const MENUITEMS = [
         ]
       },
       {
-        state: 'item',
-        short_label: 'B',
-        name: 'Item',
+        state: 'user',
+        short_label: 'U',
+        name: 'Users',
         type: 'link',
-        icon: 'ti-receipt'
+        icon: 'ti-user'
       },
       {
         state: 'provider',
         short_label: 'P',
-        name: 'Provider',
+        name: 'Providers',
         type: 'link',
         icon: 'ti-receipt'
+      },
+      {
+        state: 'item',
+        short_label: 'I',
+        name: 'Items',
+        type: 'sub',
+        icon: 'ti-desktop',
+        children: [
+          {
+            state: 'items',
+            type: 'link',
+            name: 'Items',
+          }, {
+            state: 'types',
+            type: 'link',
+            name: 'Types',
+          }, {
+            state: 'family',
+            type: 'link',
+            name: 'Families',
+          }, {
+            state: 'localisation',
+            type: 'link',
+            name: 'Localisations',
+          }
+        ]
       }
   
     ]
   },
   {
-    label: 'Login and Registration ',
     main: [
   
       {
@@ -121,7 +145,7 @@ const MENUITEMS = [
 const MENUITEMSSUPERADMIN = [
 
   {
-    label: 'Tables',
+
     main: [
       {
         state: 'company-client',

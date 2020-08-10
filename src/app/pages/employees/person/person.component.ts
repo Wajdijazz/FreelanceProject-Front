@@ -20,7 +20,7 @@ export class PersonComponent implements OnInit {
 
   constructor(private personService : PersonService,  private modalService: NgbModal,
     private router: Router,   private tokenStorage: TokenStorageService, 
-    private userService : UserService, ) { 
+    private userService : UserService ) { 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };

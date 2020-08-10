@@ -8,8 +8,8 @@
       <!-- Hover table card start -->
       <div class="card">
         <div class="card-header">
-          <h5 class="card-header-text">Department list</h5>
-          <button (click)="addDepartment()" id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
+          <h5 class="card-header-text">User list</h5>
+          <button (click)="addUser()" id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
             <i class="ti-pencil-alt"></i>
           </button>
         </div>
@@ -18,21 +18,27 @@
               <table class="table table-hover">
                <thead>
                 <tr>  
-                  <th>Name</th>
-                  <th>Creation date</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Y/N to set movement</th>
+                  <th>Role</th>
                   <th>Action</th>
+
+
                 </tr>
               </thead>
               <tbody>
-              <tr *ngFor = "let department of departments">
-                  <td>{{department.departmentName}}</td>
-                  <td>{{department.creationDate}}</td>
+              <tr *ngFor = "let user of users">
+                  <td>{{user.person.firstName}}</td>
+                  <td>{{user.person.lastName}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.autorized}}</td>
+                  <td>{{user.roles[0].roleDescription}}</td>
+
+
                   <td> 
-                     <button class="button" (click) = "updateDepartment(department)"
-                      class="btn btn-sm btn-success waves-effect">
-                      <i class="ti-pencil-alt"></i> Edit
-                     </button>
-                     <button class="button"  (click) = "deletDepartment(department.departmentId)"
+                     <button class="button"  (click) = "deleteUser(user.userId)"
                      class="btn btn-sm btn-danger waves-effect">
                     <i class="ti-trash"></i> Delete
                      </button>

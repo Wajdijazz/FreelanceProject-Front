@@ -26,6 +26,7 @@ export class BasicRegComponent implements OnInit {
     personId : null,
     companyClientId : null,
     role  : [],
+    autorized : ''
   }
 
   constructor(private userService : UserService,
@@ -45,6 +46,7 @@ export class BasicRegComponent implements OnInit {
     this.user.personId = this.company.personId;
     this.user.password = admin.password;
     this.user.confirmedPassword = admin.confirmedPassword;
+    this.user.autorized = "Yes"
     this.userService.saveUser(this.user).subscribe(
       res => {
         this.modalService.close();
