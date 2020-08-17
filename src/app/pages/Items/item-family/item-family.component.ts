@@ -52,4 +52,10 @@ export class ItemFamilyComponent implements OnInit {
     modalRef.componentInstance.itemFamily = itemFamily;
   }
 
+  deleteItemFamily(itemFamilyId : Number) {
+    this.itemFamilyService.deleteItemFamily(itemFamilyId);
+    this.router.navigateByUrl('/item/family');
+
+  }
+
 }
